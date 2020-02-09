@@ -28,11 +28,10 @@ flask_app server for python
 
 Usage
 -----
-
 可以在客户端直接通信::
 
-  <script src="//cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.4/sockjs.js"></script>
-  <script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.4/sockjs.js"></script>
+    <script>
       var sock = new SockJS('http://localhost:5000/sockjs');
 
       sock.onopen = function() {
@@ -46,7 +45,7 @@ Usage
       sock.onclose = function() {
         console.log('close');
       };
-  </script>
+    </script>
 
  --ES使用--::
  
