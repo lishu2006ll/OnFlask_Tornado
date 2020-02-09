@@ -60,6 +60,53 @@ Usage
     http://xxxxxxxxx:80/players/a_player.html	192.168.1.10	80	demo.srs.com
     rtmp://xxxxxx:1935/live/livestream	192.168.1.10	1935	demo.srs.com
 
+grpc for python
+============
+grpc-python 准备工作
+
+0、序列化方式选择
+
+使用 JSON 文本
+
+1、安装 Python 相关库
+
+pip install grpcio
+
+pip install protobuf
+
+pip install grpcio-tools
+2、Python 工程相关目录结构说明
+com/anoyi/grpc/facade/service/UserServiceByFastJSON.py
+对应 Java 模块 samples-facade 中定义的接口 UserServiceByFastJSON
+client.py
+python grpc 客户端，用于远程调用服务端的方法
+server.py
+python grpc 服务端，用于提供方法实现，供客户端调用
+service.proto
+通用的 proto 文件，与 spring-boot-starter-grpc 中定义的一致
+service_pb2.py 和 service_pb2_grpc.py
+由工具 grpcio-tools 根据  service.proto 生成，生成方式如下：
+python -m grpc_tools.protoc -I./ --python_out=. --grpc_python_out=. ./service.proto
+Python Server & Java Client
+3、运行 server.py
+
+python server.py
+常见问题①
+Traceback (most recent call last):
+  File "server.py", line 10, in <module>
+    import service_pb2
+  File "/Users/admin/code/python/python-grpc/service_pb2.py", line 22, in <module>
+    serialized_pb=_b('\n\rservice.proto\"-\n\x07Request\x12\x11\n\tserialize\x18\x01 \x01(\x05\x12\x0f\n\x07request\x18\x02 \x01(\x0c\"\x1c\n\x08Response\x12\x10\n\x08response\x18\x01 \x01(\x0c\x32\x30\n\rCommonService\x12\x1f\n\x06handle\x12\x08.Request\x1a\t.Response\"\x00\x42\x1e\n\rcom.anoyi.rpcB\x0bGrpcServiceP\x00\x62\x06proto3')
+TypeError: __init__() got an unexpected keyword argument 'serialized_options'
+解决方案：修改 service_pb2.py 文件，将所有的 serialized_options 替换为 options
+
+常见问题②
+Traceback (most recent call last):
+  File "server.py", line 11, in <module>
+    import service_pb2_grpc
+  File "/Users/admin/code/python/python-grpc/service_pb2_grpc.py", line 8
+SyntaxError: Non-ASCII character '\xe5' in file /Users/admin/code/python/python-grpc/service_pb2_grpc.py on line 8, but no encoding declared; see http://python.org/dev/peps/pep-0263/ for details
+解决方案：修改 service_pb2_grpc.py，在文件头部添加如下内容：
 
 Installation
 ------------
