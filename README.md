@@ -1,17 +1,17 @@
 flask_app server for python
 ============
 支持功能如下：
-    1. 支持sockjs，支持websocket进行通信，可作为客户系统对外提供服务， 你可以为每一个sockjs 路由实现不同的session进行通信，管理多个不同的session
-    2. 支持ES: Elasticsearch支持很多查询方式，其中一种就是DSL，它是把请求写在JSON里面，然后进行相关的查询,SL查询语言中存在两种：查询DSL（query DSL）和过滤DSL（filter DSL）
-    3. 支持rtsp 与rtmp: 框架支持rtsp进行流媒体操作和处理, 可以根据不同的协议类型进行推流和拉流操作
-    4. 支持flask_admin， 可以通过flask_admin快速生产，做后台管理很轻松
-    5. 支持flask和tornado切换，可以根据不同业务需求选择不同的启动方式
-    6. 继承定时任务机制，支持quartzjob， 可以在页面上定制定制任务，进行业务动态调度
-    7. 支持grpc服务, 支持跨语言访问
-    8. 继承swagger， 提供apidocs,提供在线调试接口，支持集访问模式
-    9. 支持人脸识别程序，集成recognize， 提供在线人脸识别接口，对人脸进行识别
-    10. 支持流媒体，支持海康和大华等摄像头集成，可以远程拉流和对流媒体进行处理。
-    11. 集成nlp中的词向量和jieba分词，用于自然语言处理
+    1. 支持sockjs，支持websocket进行通信，可作为客户系统对外提供服务， 你可以为每一个sockjs 路由实现不同的session进行通信，管理多个不同的session;
+    2. 支持ES: Elasticsearch支持很多查询方式，其中一种就是DSL，它是把请求写在JSON里面，然后进行相关的查询,SL查询语言中存在两种：查询DSL（query DSL）和过滤DSL（filter DSL）;
+    3. 支持rtsp 与rtmp: 框架支持rtsp进行流媒体操作和处理, 可以根据不同的协议类型进行推流和拉流操作;
+    4. 支持flask_admin， 可以通过flask_admin快速生产，做后台管理很轻松;
+    5. 支持flask和tornado切换，可以根据不同业务需求选择不同的启动方式;
+    6. 继承定时任务机制，支持quartzjob， 可以在页面上定制定制任务，进行业务动态调度;
+    7. 支持grpc服务, 支持跨语言访问;
+    8. 继承swagger， 提供apidocs,提供在线调试接口，支持集访问模式;
+    9. 支持人脸识别程序，集成recognize， 提供在线人脸识别接口，对人脸进行识别;
+    10. 支持流媒体，支持海康和大华等摄像头集成，可以远程拉流和对流媒体进行处理;
+    11. 集成nlp中的词向量和jieba分词，用于自然语言处理;
     
 
 
